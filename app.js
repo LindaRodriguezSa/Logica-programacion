@@ -1,4 +1,3 @@
-
 let numeroSecreto = generarNumeroSecreto();
 
 function asignarTextoElemento(elemento, texto) {
@@ -8,14 +7,24 @@ function asignarTextoElemento(elemento, texto) {
 function verificarIntento() {
   let numerosDeUsuario = parseInt(
     document.getElementById("valorUsuario").value
-  );
-  console.log(typeof numerosDeUsuario);
-  console.log(numeroSecreto === numerosDeUsuario);
+  ); /* console.log(numerosDeUsuario);
+  console.log(typeof numerosDeUsuario); */
+
+  if (numeroSecreto === numerosDeUsuario) {
+    asignarTextoElemento("p", "Acertaste el numero");
+  } else {
+    if (numerosDeUsuario > numeroSecreto) {
+      asignarTextoElemento("p", "El numero secreto es menor");
+    } else {
+      asignarTextoElemento("p", "El numero secreto es mayor");
+    }
+  }
 
   return;
 }
 function generarNumeroSecreto() {
   let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+  console.log(numeroSecreto);
   return numeroSecreto;
 }
 
